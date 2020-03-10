@@ -1,0 +1,97 @@
+<% include ../partials/header %>
+
+<div class="container" style="padding-top:5%">
+    
+<form action="/<%=sid%>/exam/<%=exam._id%>" method="POST">
+<% var num = Number(0);%>
+<% exam.score.forEach( function(s){ %>
+<%   num = num + Number(s); %>
+<% }) %>
+<div class =""style=" overflow-y:auto; overflow-x:auto; width:1200px; height:500px ">
+<table class="table table-hover table-striped " >
+    <caption>您正在参加 <%= exam.name%> 的考试 试卷总分：<%= num%> 及格线：<%=exam.pass%></caption>
+    <tr align="center">
+        <td>序号</td>
+        <td>题目内容</td>
+        <td>类型</td>
+        <td>分值</td>
+        <td>选项A</td>
+        <td>选项B</td>
+        <td>选项C</td>
+        <td>选项D</td>
+    </tr>
+    <% var questions = exam.questions%>
+    <% questions.forEach( function(question, index){ %>
+    <tr align="center">
+        <td>
+            <span><%= index+1 %></span>
+        </td>
+        <td>
+            <span><%= question.content%> </span> 
+        </td>
+        <td>
+            <span><%= question.type%></span>
+        </td>
+         <td>
+            <span><%= exam.score[index]%></span>
+        </td>
+        <td>
+            <input name="select<%= index %>" type="radio"  value="A">
+            <span><%= question.selection[0]%></span>
+        </td>
+        <td>
+            <input name="select<%= index %>" type="radio"  value="B">
+            <span><%= question.selection[1]%></span>
+        </td>
+        <td>
+            <input name="select<%= index %>" type="radio"  value="C">
+            <span><%= question.selection[2]%></span>
+        </td>
+        <td>
+            <input name="select<%= index %>" type="radio"  value="D">
+            <span><%= question.selection[3]%></span>
+        </td>
+        
+    </tr>
+        
+    <% }) %>
+    <tr>
+        <td>
+            <span>8</span>
+        </td>
+        <td>
+            <span>树的根节点有（）个</span> 
+        </td>
+        <td>
+            <span>填空</span>
+        </td>
+         <td>
+            <span>10</span>
+        </td>
+         <td>
+            <input type ="text" value=""> 
+        </td>
+        
+    </tr>
+  
+</table>
+</div>
+
+  <button class="btn btn-success" name="show" >提交</button>
+</form>
+
+
+
+</div>
+
+
+
+
+
+
+
+<% include ../partials/footer %>
+
+
+
+

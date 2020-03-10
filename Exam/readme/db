@@ -1,0 +1,28 @@
+//////User
+sid:number
+name:string
+password:string
+
+//////Question
+sub:string
+type:string
+content:string
+selection:[string]
+answer:string
+level:number
+
+////////Exam
+sub:string
+creator:string
+name:
+qid:[Question] {type: mongoose.Schema.Types.ObjectId,ref:'question'}
+score:[string]
+
+///////ExamResult
+sid:{type: mongoose.Schema.Types.ObjectId,ref:'user'}
+eid:{type: mongoose.Schema.Types.ObjectId,ref:'Exam'}
+answer:[string]
+score:[number]
+
+
+

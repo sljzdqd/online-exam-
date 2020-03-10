@@ -1,0 +1,65 @@
+<% include ../partials/header %>
+
+<div class="container">
+
+<table class="table table-hover table-striped " >
+    <caption>查看您的各个试卷成绩</caption></caption>
+    <tr align="center">
+        <td>序号</td>
+        <td>试卷名称</td>
+        <td>出卷人</td>
+        <td>试卷总分</td>
+        <td>及格线</td>
+        <td>考试成绩</td>
+        <td>操作</td>
+    </tr>
+    <% var num = Number(0); var you = Number(0)%>
+    <% results.forEach( function(result, index){ %>
+    <% var exam = result.exam;%>
+    <% num = 0; you = 0;%>
+    <% exam.score.forEach(function(each){num = num + Number(each); }); %>
+    <% result.score.forEach(function(each){you = you + Number(each); }); %>
+    <tr align="center">
+        <td>
+            <span><%= index+1 %></span>
+        </td>
+        <td>
+            <span><%= exam.name%> </span> 
+        </td>
+        <td>
+            <span><%= exam.creator%></span>
+        </td>
+        <td>
+            <span><%= num%></span>
+        </td>
+        <td>
+            <span><%= exam.pass%></span>
+        </td>
+        <td>
+             <% if (exam.pass > you) {%>
+            <span style = "color: red" ><%= you%></span>
+          <%  } %>
+              <% if (exam.pass <= you) {%>
+                <span style = "color: black" ><%= you%></span>
+              <%  } %>
+        </td>
+        <td>
+            <form action="/<%=sid%>/grade/<%=result._id%>/<%= exam._id%>" method="GET">
+            <button class = "btn btn-success " >查看详情</button>
+            </form>
+        </td>
+    </tr>
+        
+    <% }) %>
+  
+</table>
+
+<a href="/<%=sid%>">Go Back</a>
+
+
+</div>
+
+
+
+
+<% include ../partials/footer %>

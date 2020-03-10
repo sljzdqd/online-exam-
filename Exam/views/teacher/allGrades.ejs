@@ -1,0 +1,67 @@
+<% include ../partials/header %>
+
+<div class="container">
+
+<table class="table table-hover table-striped " >
+    <caption>所有学生成绩列举如下</caption></caption>
+    <tr align="center">
+        <td>序号</td>
+        <td>班级</td>
+        <td>学号</td>
+        <td>姓名</td>
+        <td>及格线</td>
+        <td>成绩</td>
+    </tr>
+    
+    <% var you = Number(0); var num = Number(0)%>
+    <% var all = Number(0); var pass = Number(0);var ave = Number(0); %>
+    
+    <% results.forEach( function(result, index){ %>
+        <% num = 0; result.exam.score.forEach(function(each){num = num + Number(each); }); %>
+    <% you = 0; all = all + 1; %>
+    <% result.score.forEach(function(each){you = you + Number(each); }); %>
+    <%ave = ave + you;%>
+    <%if(you >= result.exam.pass) {pass = pass + 1};%>
+    <tr align="center">
+        <td>
+            <span><%= index+1%></span>
+        </td>
+        <td>
+            <span><%= result.user.class%></span>
+        </td>
+        <td>
+            <span><%= result.user.sid%> </span> 
+        </td>
+        <td>
+            <span><%= result.user.name%></span>
+        </td>
+        <td>
+            <span><%= result.exam.pass%> </span> 
+        </td>
+        <td>
+            <% if (result.exam.pass > you) {%>
+            <span style = "color: red" ><%= you%></span>
+          <%  } %>
+              <% if (result.exam.pass <= you) {%>
+                <span style = "color: black" ><%= you%></span>
+              <%  } %>
+        </td>
+    </tr>
+        
+    <% }) %>
+  
+</table>
+<div style="margin-top:5%">
+<h4>试卷总分：<%= num%> </h4>
+<h4>及格人数：<%=pass%>/<%=all%></h4>
+<h4>平均得分：<%= ave%></h4>
+</div>
+<div style="margin-top:20%">
+<a href="/teacher/exam" >Go Back</a>
+</div>
+
+
+
+
+
+</div>

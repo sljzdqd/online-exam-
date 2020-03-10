@@ -1,0 +1,41 @@
+body{
+	/*background-image: url(/pictures/home_bg.jpg);*/
+  background-image: url("http://www.gaoimg.com/uploads/allimg/170104/1-1F1041201522I.jpg");
+	background-size: cover;
+	background-position: center;
+}
+#content{
+	text-align: center;
+	padding-top: 5%;
+	
+}
+h1{
+	color:white;
+	font-size: 5em;
+	font-weight: 700;
+	text-shadow: 0px 4px 3px orange;
+	
+}
+html{
+	height: 100%;
+}
+h3{
+    font-size: 3em;
+}
+#test1{
+	margin-right: 5px;
+}
+
+.form{background: rgba(255,255,255,0.2);width:400px;margin:50px auto; padding-bottom: 50px; padding-top: 50px; }
+/*阴影*/
+.fa{display: inline-block;top: 27px;left: 6px;position: relative;color: #ccc;}
+input[type="text"],input[type="password"]{padding-left:26px;}
+
+.table {
+    font-size:18px;
+}
+.control-label {
+	font-size:30px;
+}
+
+

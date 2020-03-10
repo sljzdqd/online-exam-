@@ -1,0 +1,68 @@
+<% include ../partials/header %>
+
+<div class="container" style="padding-top:5%">
+
+
+<div class =""style=" overflow-y:auto; overflow-x:auto; width:1200px; height:480px ">
+<table class="table table-hover table-striped " >
+    <caption>题库</caption>
+    <tr align="center">
+        <td>序号</td>
+        <td>题目内容</td>
+        <td>难度</td>
+        <td>操作</td>
+    </tr>
+    
+    <% questions.forEach( function(question, index){ %>
+    <tr align="center">
+        <td>
+            <span><%= index+1 %></span>
+        </td>
+        <td>
+            <span><%= question.content%> </span> 
+        </td>
+        <td>
+          <span><%= question.level%></span>
+        </td>
+        <td>
+            <a href = '/teacher/bank/ds/<%= question._id%>' class = "btn btn-success">查看</a>
+        </td>
+    </tr>
+        
+    <% }) %>
+  
+</table>
+</div>
+
+<nav aria-label="Page navigation" >
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<div >
+<a href="/teacher/bank" >Go Back</a>
+</div>
+<a class="btn btn-lg btn-primary" href="/teacher/bank/ds/new">增加新题目</a>
+</div>
+
+
+
+
+
+
+
+<% include ../partials/footer %>

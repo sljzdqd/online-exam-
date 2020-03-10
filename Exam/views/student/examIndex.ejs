@@ -1,0 +1,58 @@
+<% include ../partials/header %>
+
+<div class="container">
+
+<table class="table table-hover table-striped " >
+    <caption>选择已发布的试卷</caption></caption>
+    <tr align="center">
+        <td>序号</td>
+        <td>试卷名称</td>
+        <td>出卷人</td>
+        <td>创造时间</td>
+        <td>是否完成</td>
+        <td>操作</td>
+    </tr>
+    
+    <% exams.forEach( function(exam, index){ %>
+    <tr align="center">
+        <td>
+            <span><%= index+1 %></span>
+        </td>
+        <td>
+            <span><%= exam.name%> </span> 
+        </td>
+        <td>
+            <span><%= exam.creator%></span>
+        </td>
+        <td>
+            <span><%= exam.date%></span>
+        </td>
+        <td>
+            <% var done = '否'%>
+            <% results.forEach(function(result){  %>
+            <%    if(result.exam.name === exam.name) { done = '是'}%>
+                
+          <%  }) %>
+            <span class = "done" ><%= done%></span>
+        </td>
+        <td>
+            <form action="/<%=sid%>/exam/<%= exam._id%>" method="GET">
+            <button class = "btn btn-success btn-done" disabled="disabled">参加考试</button>
+            </form>
+        </td>
+    </tr>
+        
+    <% }) %>
+  
+</table>
+
+<a href="/<%=sid%>">Go Back</a>
+
+
+</div>
+
+
+<script type="text/javascript" src="../scripts/post.js"></script>
+
+ </body>
+</html>

@@ -1,0 +1,57 @@
+<% include ../partials/header %>
+
+<div class="container" style="padding-top:10%">
+
+<div class =""style=" overflow-y:auto; overflow-x:auto; width:1200px; height:480px  ">
+<table class="table table-hover table-striped " >
+    <caption>所有试卷</caption>
+    <tr align="center">
+        <td>序号</td>
+        <td>试卷名称</td>
+        <td>出卷人</td>
+        <td>创造时间</td>
+        <td>发布情况</td>
+        <td>操作</td>
+    </tr>
+    
+    <% exams.forEach( function(exam, index){ %>
+    <tr align="center">
+        <td>
+            <span><%= index+1 %></span>
+        </td>
+        <td>
+            <span><%= exam.name%> </span> 
+        </td>
+        <td>
+          <span><%= exam.creator%></span>
+        </td>
+        <td>
+          <span><%= exam.date%></span>
+        </td>
+        <td>
+            <% if(exam.post != "yes"){ %>
+          <span>未发布</span>
+         <% }  %>
+         <% if(exam.post === "yes"){ %>
+         <span>已发布</span>
+         <% }   %>
+        </td>
+        <td>
+            <a href = '/teacher/exam/<%= exam._id%>' class = "btn btn-success">查看详细内容</a>
+            <a class="btn btn-primary" href="/teacher/<%= exam._id%>/grade" >查看学生成绩</a>
+        </td>
+    </tr>
+        
+    <% }) %>
+  
+</table>
+</div>
+
+
+<a class="btn btn-success" href="/teacher/exam/new" >增加试卷</a>
+<div>
+<a  href="/teacher" >Go Back</a>
+</div>
+
+
+</div>

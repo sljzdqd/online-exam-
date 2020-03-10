@@ -1,0 +1,64 @@
+////学生端 
+
+参加考试-> 选择试卷 ->提交 
+
+
+查看成绩 -> 选择试卷
+
+
+//教师端
+
+管理题库 ->选择科目->增加/删除
+
+管理试卷 ->选择科目-> 增加试卷 ->随机出题
+                   
+                   -> 删除试卷
+                   
+学生成绩 -> 选择试卷
+
+
+/                           get                     登录界面      home.ejs
+/                           post                    登录判定      home.ejs
+
+/////////////////教师端///////////////////////////////////////
+/teacher                                            教师主页      admin.ejs
+/teacher/bank               get                     选择科目      subIndex.ejs
+/teacher/bank/ds            get                     查看题库      showQbank.ejs
+/teacher/bank/ds/           post                    增加题目
+/teacher/bank/ds/:qid       delete                  删除题目
+/teacher/bank/ds/:qid       get                     查看具体题目界面  showQ.ejs
+/teacher/bank/ds/new        get                     增加题目界面  newQ.ejs
+
+/teacher/exam               get                     选择试卷         subExam.ejs
+/teacher/exam/              get                     查看试卷
+/teacher/exam/:eid          get                     查看特定试卷      showExam.ejs
+/teacher/exam/:eid/grade    get               查看特定试卷学生成绩      showGrade.ejs
+/teacher/exam/              post                    增加试卷    
+/teacher/exam/              delete                  删除试卷
+/teacher/exam/new           get                     增加试卷界面     newExam.ejs
+
+
+
+
+/////////////学生端////////////////////////////////////////////
+/:sid                                               学生主页    student.ejs
+/:sid/exam                  get                     选择参加考试的试卷    examIndex.ejs
+/:sid/exam/:eid             get                     考试进行中              answer.ejs
+/:sid/exam/:eid             post                    提交
+/:sid/grade                 get                     选择查看成绩的试卷    gradeIndex.ejs
+/:sid/grade/:eid            get                     查看选定考试的成绩    grade.ejs
+
+
+
+
+
+1. mongoose.connect("mongodb://localhost/ncepu_exam"); 很重要
+2.多表关联 push整个进去系统会自动留下objectid 
+newexam.questions.push(one);
+            });
+newexam.save();
+3.闭包函数：子函数内的变量处理不影响子函数外部
+4.事件委托机制：父组件注册事件，再判断子组件e.target
+5.原生js获取的DOM集合是一个类数组对象，所以不能直接利用数组的方法（例如：forEach，map等），需要进行转换为数组后，才能用数组的方法
+(如果使用querySelectorAll（）可以获得数组)
+6..populate([{path: "user"},{path: "exam"}]).exec(function

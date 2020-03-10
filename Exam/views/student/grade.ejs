@@ -1,0 +1,123 @@
+<% include ../partials/header %>
+
+<div class="container">
+<div class =""style=" overflow-y:auto; overflow-x:auto; width:1200px; height:500px ">
+<table class="table table-hover table-striped " >
+    <caption><%=result.exam.name%></caption></caption>
+    <tr align="center">
+        <td>序号</td>
+        <td>题目内容</td>
+        <td>难度</td>
+        <td>选项A</td>
+        <td>选项B</td>
+        <td>选项C</td>
+        <td>选项D</td>
+        <td>正确答案</td>
+        <td>分值</td>
+        <td>您的答案</td>
+        <td>得分</td>
+    </tr>
+    <% var questions = result.exam.questions%>
+    <% questions.forEach( function(question, index){ %>
+    <tr align="center">
+        <td>
+            <span><%= index+1 %></span>
+        </td>
+        <td>
+            <span><%= question.content%> </span> 
+        </td>
+        <td>
+            <span><%= question.level%></span>
+        </td>
+        <td>
+            <span><%= question.selection[0]%></span>
+        </td>
+        <td>
+            <span><%= question.selection[1]%></span>
+        </td>
+        <td>
+            <span><%= question.selection[2]%></span>
+        </td>
+        <td>
+            <span><%= question.selection[3]%></span>
+        </td>
+        <td>
+            <span><%= question.answer%></span>
+        </td>
+         <td>
+            <span><%= result.exam.score[index]%></span>
+        </td>
+         <td>
+              <% if (question.answer != result.answer[index]) {%>
+            <span style = "color: red" ><%= result.answer[index]%></span>
+          <%  } %>
+              <% if (question.answer === result.answer[index]) {%>
+                <span style = "color: black" ><%= result.answer[index]%></span>
+              <%  } %>
+          
+        </td>
+         <td>
+            <span><%= result.score[index]%></span>
+        </td>
+    </tr>
+        
+    <% }) %>
+    
+    ///////////////////////////////
+     <tr align="center">
+        <td>
+            <span>8</span>
+        </td>
+        <td>
+            <span>树的根节点有（）个 </span> 
+        </td>
+        <td>
+            <span>1</span>
+        </td>
+        <td>
+            <span></span>
+        </td>
+        <td>
+            <span></span>
+        </td>
+        <td>
+            <span></span>
+        </td>
+        <td>
+            <span</span>
+        </td>
+        <td>
+            <span>1</span>
+        </td>
+         <td>
+            <span>10</span>
+        </td>
+         <td>
+             
+            <span style = "color: red" >2</span>
+         
+          
+        </td>
+         <td>
+            <span>0</span>
+        </td>
+    </tr>
+    
+    ////////////////////////////////
+    
+    
+  
+</table>
+
+</div>
+<a class="btn btn-success" href="/<%=sid%>/grade">返回</a>
+
+</div>
+
+
+
+
+
+
+
+<% include ../partials/footer %>

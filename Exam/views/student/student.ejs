@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+    <div class="row">
+   <div class="col-md-4">
+    <div class="thumbnail">
+      <i class="fas fa-book"></i>
+      <div class="caption">
+        <h2>参加考试</h2>
+        <p>作答完毕试卷将立刻进行智能批改。</p>
+        <p><a href="/<%=sid%>/exam" class="btn btn-primary" role="button">进入</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <i class="fas fa-book-reader"></i>
+      <div class="caption">
+        <h2>查看成绩</h2>
+        <p>您可查看您每一次的考试成绩及答题结果。</p>
+        <p><a href="/<%=sid%>/grade" class="btn btn-primary" role="button">进入</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+     <i class="fas fa-user-check"></i>
+      <div class="caption">
+        <h2>个人信息</h2>
+        <p>查看您的姓名、学号、班级是否匹配</p>
+        <p><a href="/<%=sid%>/info" class="btn btn-primary" role="button">进入</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+   
+</div>
+
+
+
+<% include ../partials/footer %>

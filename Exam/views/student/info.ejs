@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+<div class="container" style="margin-top:5%">
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <i class="fas fa-user-circle"></i>
+              <div class="caption">
+                <h3>姓名</h3>
+                <p><%=user.name%></p>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <i class="fas fa-users"></i>
+              <div class="caption">
+                <h3>班级</h3>
+                <p><%=user.class%></p>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <i class="fas fa-id-card"></i>
+              <div class="caption">
+                <h3>学号</h3>
+                <p><%=user.sid%></p>
+              </div>
+            </div>
+        </div>
+    </div>
+    <a href="/<%=sid%>">Go Back</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+<% include ../partials/footer %>

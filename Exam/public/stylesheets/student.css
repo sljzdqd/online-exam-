@@ -1,0 +1,51 @@
+body{
+    background-image:url("/pictures/home_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+   
+}
+html{
+	height: 100%;
+}
+.navbar-right {
+    margin-right:10px;
+}
+.navbar-header, .navbar-brand {
+    margin-left:4px;
+}
+.container {
+    text-align: center;
+    padding-top: 10%
+}
+.thumbnail {
+    padding:10%;
+    margin:10%;
+    border-radius: 3px 3px 0px 0px;
+    
+}
+.container i {
+    font-size: 40px;
+}
+.ratio{
+    width:4px;
+}
+.caption h2{
+    color: #1FB9A5;
+}
+.table {
+    font-size:16px;
+}
+
+.table caption {
+    font-weight: bold;
+}
+
+
+
+
+tr:nth-child(1) {
+    font-weight: bold;
+    font-size: 20px;
+}
+
